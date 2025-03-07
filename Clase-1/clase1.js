@@ -120,7 +120,7 @@ const funcionAlerta=(info)=>{
 let resultado =sumar2num(33,1)
 sumar2num(22,fruta)
 sumar2num(-22,4,)
-funcionAlerta("HOLA")
+//funcionAlerta("HOLA")
 console.log(promedio(resultado))
 
 
@@ -128,4 +128,50 @@ console.log(promedio(resultado))
 
 //array-objetos- condicionales - bucles - DOM
 
-//volver 21:05hs
+
+// array - listas -arreglos -> tipo de dato que quiera, cualquier dato,no tengo limite en cuanto a cantidad
+
+
+//sintaxis: [item,item,item]
+//length -> largo -> cantidad de items de la lista
+//array.length
+//indice           0        1      2           3
+let libreria=["libros","cuadernos","lapices",'fibrones'];
+let lista=[23423,libreria,true];
+const lista2=[];
+
+//utilizar un item de la lista array[indice];
+console.log(libreria[2]);
+
+
+//modificaciones en la lista -> metodos 
+//unshift() push() -> agregar items a la lista : unshift() al inicio y push() al final
+
+libreria.push("goma","lapicera","tijera")
+
+libreria.unshift("clip") //ojo con el unshift y el cambio de indice 
+
+//pop() shift() ->sacan el ultimo y el primer item
+
+let itemEliminado=libreria.pop();
+libreria.shift();
+console.log(itemEliminado)
+//splice(indice,cantidad,valorReemplazo) -> sacar un item de la lista en cualquier posicion, reemplazarlo
+libreria.splice(2,1,"regla");
+libreria.splice(3,0,"cartuchera");
+
+console.log(fruta)
+console.log(fruta.length)//al aplicarlo en un string, me cuenta la cantidad de caracteres
+
+//join() -> une todos los items de la lista colocando entre cada item lo que indiquemos entre parentesis
+//split() -> transformar en array a un string tomando como referencia lo colocado dentro de los parentesis para separa cada item
+
+console.log(libreria)
+
+
+let frase="bienvenidos a la cursada de Martes y Jueves";
+
+console.log(frase.split(" "))
+let arrayFrase=frase.split(" ");
+arrayFrase.splice(6,1)
+console.log(arrayFrase.join(" "))
