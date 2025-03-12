@@ -105,3 +105,4 @@ let resultado2=lista.find((prod)=>{return prod.length>6});
 console.log(resultado2)
 
 //para la proxima clase: objetos -metodos - DOM (eventos) -React
+

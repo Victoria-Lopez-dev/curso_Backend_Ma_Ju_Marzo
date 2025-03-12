@@ -1,0 +1,19 @@
+.cuadro{
+    width: 400px;
+    height: 300px;
+    border: 2px solid orange;
+    margin-top: 2rem;
+}
+
+.fondo{
+    background-color: lightblue;
+    color: darkred;
+}
+.tarjeta{
+    width: 200px;
+    height: fit-content;
+    border: 2px solid violet;
+}
+.rojo{
+    background-color: red;
+}
