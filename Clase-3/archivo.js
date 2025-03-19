@@ -9,5 +9,7 @@ let{nombre}=objeto;
 
 let[valor1,valor2]=lista;
 
+
+
 //let valor1=1;
 //let valor2=2;
