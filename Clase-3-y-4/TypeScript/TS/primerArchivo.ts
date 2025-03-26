@@ -1,3 +1,5 @@
+//sitio : https://www.typescriptlang.org/
+
 //Cuando creamos una variable definamos que tipo de valores se permite
 let valor:number=22;
 valor=44

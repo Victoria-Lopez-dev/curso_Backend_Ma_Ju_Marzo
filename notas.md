@@ -28,3 +28,6 @@ desde la terminal de administradores
 npm uninstall -g paquete -> global 
 
 
+
+
+

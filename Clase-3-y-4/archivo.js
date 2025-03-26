@@ -16,3 +16,8 @@ let[valor1,valor2]=lista;
 
 let nombre2="Juan";
 nombre2=33;
+let alumnos=[]
+
+function agregarAlumnos(params) {
+    alumnos.push(params)
+}
