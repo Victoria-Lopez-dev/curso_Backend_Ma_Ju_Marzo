@@ -1,0 +1,13 @@
+[{
+    "producto":"remera",
+    "cantidad":22,
+    "stock":20
+},{
+    "producto":"pantalon",
+    "cantidad":22,
+    "stock":20
+},{
+    "producto":"buzo",
+    "cantidad":22,
+    "stock":20
+}]
