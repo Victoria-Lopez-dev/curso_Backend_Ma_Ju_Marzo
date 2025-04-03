@@ -2,8 +2,8 @@
 
 //string numbers boolean
 
-
-//SQL 
+//DB relacionales -> 
+//SQL -> lenguaje
 //informacion en forma de tablas
 //columnas -> campos
 // filas -> registros
@@ -47,6 +47,9 @@
 
 //ALTER -> altera la tabla
 //ALTER TABLE tabla ADD COLUMN campo tipo restriccion;
+//ALTER TABLE tabla DROP COLUMN campo a eliminar;
+//ALTER TABLE tabla MODIFY COLUMN campo con tipo y restricciones modificadas; 
+//ALTER TABLE tabla ADD COLUMN columna AFTER referencia ;
 
 
 //-----
@@ -55,10 +58,13 @@
 //comandos referidos al manejo de los registros (la informacion que agrego a la tabla)
 
 //INSERT -> agregar registros a una tabla
+//SELECT -> obtener registros
+//UPDATE -> actualizar registros
+//DELETE -> eliminar registros 
 
 //INSERT INTO tabla(campos) VALUES (registro),(registro);
 
 
 //Proxima clase
 //hablar comando DDL y DML ,ejercicio 
-// relacion entre tablas de una misma DB
+
