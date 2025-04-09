@@ -65,7 +65,10 @@
 //SELECT campos FROM  tabla WHERE campo=registro; -> nos trae los registros de esos campos que cumplen con esa condicion 
 //SELECT  campos FROM tabla -> nos trae solo los campos indicados de todos los registros 
 //SELECT  * FROM tabla WHERE campo=registro; -> nos trae todos los campos de los registros que cumplen con esa condicion
- 
+//SELECT * FROM tabla WHERE campo LIKE 'dato%'; 
+
+
+
 //UPDATE -> actualizar registros
 //UPDATE tabla SET campoAModificar=valor,campo=valorAModificar WHERE  campo=valor -> referencia
 //UPDATE tabla SET campoAModificar=valor -> en todos los registros va a modificar ese campo con ese valor
