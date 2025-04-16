@@ -1,4 +1,5 @@
 "use strict";
+//sitio : https://www.typescriptlang.org/
 //Cuando creamos una variable definamos que tipo de valores se permite
 let valor = 22;
 valor = 44;
@@ -62,3 +63,4 @@ sumar(222, 33);
 //sumar(11);nos tira error TypeScript ya que es obligatorio los 2 parametros numericos
 saludar("Ana"); //aca no nos tira error Typescript ya que apellido es un parametro opcional ->?
 saludar("Juan", "Perez");
+//break!! volvemos 21:10 hs
