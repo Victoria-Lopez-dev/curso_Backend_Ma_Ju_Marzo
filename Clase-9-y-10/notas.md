@@ -50,7 +50,7 @@ nos permite crear una DB y trasladarnos a esta; en caso que la misma exista simp
 nos permite crear una coleccion dentro de la DB 
 
 ### db.nombreColeccion.insertOne({propiedad:valor,propiedad:valor}) 
-##  db.nombreColeccion.insertMany([{propiedad:valor,propiedad:valor}])
+##  db.nombreColeccion.insert([{propiedad:valor,propiedad:valor}])
 nos permite ingresar uno o varios documentos a la coleccion que indiquemos (siempre estando posicionados dentro de la DB correcta)
 
 ### db.nombreColeccion.find({filtro}) 
@@ -62,6 +62,44 @@ findOne() -> el primer documento que encuentre con ese filtro
 
 si no coloco nada entre los parentesis, me trae todos los documentos de esa coleccion 
 
+# filtro -> propiedad/clave:valor 
+# operadores 
+
+$eq -> igual a (===)
+$gt -> mayor a (>)
+$gte -> mayor o igual a (>=)
+$lt -> menor a (<)
+$lte->menor o igual a (<=)
+
+## sintaxis ->{propiedad/clave:{$operador :valor}}
+
+$regex -> buscar un patron de texto 
+
+## sintaxis ->{propiedad/clave:{$regex :valor}} o {propiedad/clave:{$regex :valor,$options:"i"}}
+
+$options:"i" -> que sea insensible a minusculas y mayusculas
+
+
+## operadores logicos 
+$and
+$or
+$not
+
+## sintaxis -> {$opLogico :[{propiedad/clave:valor},{propiedad/clave:valor}]}
+
+
+## db.coleccion.updateMany({filtro},{$ref:{propiedad/clave:valor,propiedad/clave:valor,...}})
+## db.coleccion.updateOne({filtro},{$ref:{propiedad/clave:valor,propiedad/clave:valor,...}})
+
+## $ref 
+$set -> agregar un nuevo clase/propiedad al documento
+$unset -> sacar un clase/propiedad de un documento 
+
+si lo que quiero es que en el/los  documento/s se produzca el agregar un nuevo campo y eliminar otro , puedo hacerlo 
+
+{filtro},[{$ref:{propiedad/clave:valor}},{$ref:{propiedad/clave:valor}}]}
+
+## replaceOne
 
 ## CRUD 
 
@@ -73,7 +111,8 @@ U= Update (Actualizar)
 D= Delete (Eliminar)
 
 
-# proxima clase :
-- operadores 
-- update
+# proxima clase (clase 10):
+- repasar operadores 
+- repasar update complejo
 - delete 
+- ejercicios 
