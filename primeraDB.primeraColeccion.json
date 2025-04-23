@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "67fefd966c1dd68ed08cc921"
+  },
+  "dato": "valor",
+  "dato2": true,
+  "dato3": 333,
+  "cantidad": 30
+},
+{
+  "_id": {
+    "$oid": "67fefe576c1dd68ed08cc922"
+  },
+  "dato": "valorB",
+  "dato3": 22,
+  "cantidad": 10,
+  "dato2": true
+},
+{
+  "_id": {
+    "$oid": "67fefe576c1dd68ed08cc923"
+  },
+  "dato3": 5,
+  "dato": "valor del dato"
+},
+{
+  "_id": {
+    "$oid": "67ff0044666be3125c723834"
+  },
+  "dato3": 44,
+  "dato": "valorDato44",
+  "cantidad": 30
+},
+{
+  "_id": {
+    "$oid": "68081a77d1bccc97ad97ae4d"
+  },
+  "dato3": "333",
+  "data": "hola"
+}]

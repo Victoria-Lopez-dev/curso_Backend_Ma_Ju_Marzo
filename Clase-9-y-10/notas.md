@@ -51,6 +51,7 @@ nos permite crear una coleccion dentro de la DB
 
 ### db.nombreColeccion.insertOne({propiedad:valor,propiedad:valor}) 
 ##  db.nombreColeccion.insert([{propiedad:valor,propiedad:valor}])
+##  db.nombreColeccion.insertMany([{propiedad:valor,propiedad:valor}])
 nos permite ingresar uno o varios documentos a la coleccion que indiquemos (siempre estando posicionados dentro de la DB correcta)
 
 ### db.nombreColeccion.find({filtro}) 
@@ -81,9 +82,9 @@ $options:"i" -> que sea insensible a minusculas y mayusculas
 
 
 ## operadores logicos 
-$and
-$or
-$not
+$and -> todos los filtros se cumplan 
+$or -> los documentos que cumplen con alguno como minimo de los filtros
+$not -> los documentos que no cumplan con el filtro 
 
 ## sintaxis -> {$opLogico :[{propiedad/clave:valor},{propiedad/clave:valor}]}
 

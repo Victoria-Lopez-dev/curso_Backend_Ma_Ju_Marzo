@@ -1,0 +1,26 @@
+[{
+    "titulo":"Guardianes de la Galaxia",
+    "duracion":"149 minutos",
+    "genero":"Accion",
+    "tickets":200
+},{
+    "titulo":"Elijo Creer",
+    "duracion":"119 minutos",
+    "genero":"Documental",
+    "tickets":150
+},{
+    "titulo":"Muchachos",
+    "duracion":"96 minutos",
+    "genero":"Documental",
+    "tickets":100
+},{
+    "titulo":"Wonka",
+    "duracion":"93 minutos",
+    "genero":"Aventura",
+    "tickets":300
+},{
+    "titulo":"John Wick",
+    "duracion":"170 minutos",
+    "genero":"Accion",
+    "tickets":170
+}]
