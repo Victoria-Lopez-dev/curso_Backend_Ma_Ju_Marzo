@@ -5,6 +5,27 @@
  ## colecciones -> archivos que contienen la informacion ( como las tablas en SQL)
  ## documentos -> la informacion almacenada en la coleccion (como los registros en SQL)
 
+# 1 - conectar Mongo:
+en la terminal colocar el comando mongod (sin cerrarlo para no cortar la ejecucion)
+o otra terminal y corremos el comando mongosh o abrimos Compass
+
+
+
+## 2 - crear una DB y una coleccion
+
+A- use nombreDB -> crear una DB
+B - creamos las colecciones
+
+### Tips!!
+tengo que estar posicionado en la DB para poder acceder/crear/modificar las colecciones y los documentos
+
+No necesitamos posicionarnos en las colecciones para alterarlas 
+
+
+
+
+
+
  # CRUD ( Create - Reed - Update - Delete) en Mongo
 
 # agregar documentos a una coleccion
@@ -50,6 +71,35 @@ dentro de "segundaColeccion" estamos eliminando del documento que tiene de edad 
 - db.segundaColeccion.updateOne({edad:22},[{$unset:{propiedad:'valor'},{$set:{regular:true}}]})
 
 dentro de "segundaColeccion" estamos actualizando el documento que tiene como edad 22, sacandole la propiedad "propiedad" y agregando la propiedad "regular" con su valor correspondiente
+
+db.primeraColeccion.updateOne({$and:[{dato:'valorB'},{dato3:22}]},{$set:{cantidad:5}})
+
+
+# OPERADORES
+
+
+$eq -> igual a (===)
+$gt -> mayor a (>)
+$gte -> mayor o igual a (>=)
+$lt -> menor a (<)
+$lte->menor o igual a (<=)
+
+## sintaxis ->{propiedad/clave:{$operador :valor}}
+
+$regex -> buscar un patron de texto 
+
+## sintaxis ->{propiedad/clave:{$regex :valor}} o {propiedad/clave:{$regex :valor,$options:"i"}}
+
+$options:"i" -> que sea insensible a minusculas y mayusculas
+
+
+## operadores logicos 
+$and -> todos los filtros se cumplan 
+$or -> los documentos que cumplen con alguno como minimo de los filtros
+$not -> los documentos que no cumplan con el filtro 
+
+## sintaxis -> {$opLogico :[{propiedad/clave:valor},{propiedad/clave:valor}]}
+
 
 ## si quiero cambiar un documento entero por otro 
 db.nombreColeccion.replaceOne({filtro},{nuevoDocumento})
