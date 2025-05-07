@@ -140,6 +140,20 @@ app.get('/api/busqueda', (req, res) => {
 - Si visitás: `http://localhost:3000/api/busqueda?q=notebook`
 - El servidor responde: `Buscando: notebook 🔎`
 
+## 📦 Enviando y Recibiendo JSON con `req.body`
+
+```javascript
+app.post('/api/usuario', (req, res) => {
+  const datos = req.body;
+  console.log('Datos recibidos:', datos);
+
+  res.json({
+    mensaje: 'Usuario recibido correctamente ✅',
+    usuario: datos,
+  });
+});
+```
+
 ---
 
 ## 5️⃣ 🧱 Servir Archivos Estáticos
@@ -227,20 +241,6 @@ Esto carga automáticamente `public/index.html`.
 - `http://localhost:3000/app.js` 👉 Sirve el JavaScript
 
 ## No hace falta crear rutas específicas para esos archivos, Express los sirve automáticamente.
-
-## 📦 Enviando y Recibiendo JSON con `req.body`
-
-```javascript
-app.post('/api/usuario', (req, res) => {
-  const datos = req.body;
-  console.log('Datos recibidos:', datos);
-
-  res.json({
-    mensaje: 'Usuario recibido correctamente ✅',
-    usuario: datos,
-  });
-});
-```
 
 ---
 

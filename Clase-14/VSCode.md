@@ -51,6 +51,15 @@ Instalar extensiones en **Visual Studio Code** mejora la productividad, organiza
 
 ---
 
+## 🧪 **Cliente HTTP**
+
+### 8. **Thunder Client** ([Link](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client))
+
+- 📌 **Qué hace**: Cliente HTTP liviano integrado en VSCode para probar APIs REST y endpoints.
+- 🎯 **Beneficio**: Realiza pruebas rápidas sin salir del editor, ideal para desarrollo backend con Node.js, Express, NestJS, etc.
+
+---
+
 ## 🌈 **Configurar Brackets Coloridos en VSCode**
 
 Para activar colores en los corchetes (`brackets`), sigue estos pasos:
