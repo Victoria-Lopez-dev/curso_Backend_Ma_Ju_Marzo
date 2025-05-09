@@ -11,15 +11,28 @@ const PORT = 3000; // Puerto donde escuchará el servidor
 
 app.use(express.json()); // Middleware para parsear el cuerpo de las peticiones a JSON
 
+app.use(express.static('public')); // Middleware para servir archivos estáticos desde la carpeta 'public'
+
+/**
+ * Otra manera de servir archivos estáticos
+ *
+ * const path = require('path');
+ * console.log(__dirname);
+ * console.log(path.join(__dirname, '/public'));
+ * app.use('/', express.static(path.join(__dirname, 'public')));
+ */
+
 app.use('/saludo', saludoRouter);
 app.use('/item', itemRouter);
 app.use('/productos', productosRouter);
 
-app.get('/', (req, res) => {
-  res.send(
-    '¡Hola desde Express! Esta es la ruta raíz. Puedes acceder a /api para ver la API.'
-  );
-});
+/**
+ * Al utilizar el app.use(express.static('public')) esto deja de funcionar
+ * colision con la ruta "/"
+ */
+//app.get('/', (req, res) => {
+//  res.send('¡Hola desde Express!');
+//});
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
