@@ -64,6 +64,10 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 app.set('views', './views');
+
+app.listen(port, () => {
+  console.log(`Servidor escuchando en http://localhost:${port}`);
+});
 ```
 
 ### 🗂️ Estructura de Archivos
