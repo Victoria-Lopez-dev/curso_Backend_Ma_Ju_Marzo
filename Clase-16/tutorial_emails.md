@@ -43,7 +43,9 @@ npm i express nodemailer express-handlebars
 ```js
 const express = require('express');
 const path = require('path');
-const mailRoutes = require('./routes/mail.routes');
+const exphbs = require('express-handlebars');
+
+const mailRoutes = require('./src/routes/mail.routes');
 
 const app = express();
 const PORT = 3000;
@@ -51,14 +53,14 @@ const PORT = 3000;
 app.engine(
   'handlebars',
   exphbs.engine({
-    partialsDir: './views',
+    partialsDir: './src/views',
     defaultLayout: false,
   })
 );
 
 // Configuración de Handlebars
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
 
 // Middlewares
 app.use(express.json());
