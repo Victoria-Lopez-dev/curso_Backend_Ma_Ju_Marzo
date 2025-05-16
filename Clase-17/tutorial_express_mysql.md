@@ -143,7 +143,7 @@ node_modules
 
 ---
 
-## ⚙️ Configuración de la base de datos - `config/db.js`
+## 🚘 Configuración de la base de datos - `config/db.js`
 
 ```js
 require('dotenv').config();
@@ -368,7 +368,7 @@ Y este código:
 
 ```js
 const nombre = req.body.nombre;
-const query = `SELECT * FROM productos WHERE nombre = '\${nombre}'`;
+const query = `SELECT * FROM productos WHERE nombre = '${nombre}'`;
 pool.query(query);
 ```
 
