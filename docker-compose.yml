@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql-example
+    environment:
+      - MYSQL_DATABASE=stock_db
+      - MYSQL_USER=dev_user
+      - MYSQL_PASSWORD=dev_pass
+      - MYSQL_ROOT_PASSWORD=rootpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql  # ✅ bind mount
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=rootpass
+    depends_on:
+      - mysql
+
+volumes: {}
