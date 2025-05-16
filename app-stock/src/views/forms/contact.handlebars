@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MyBackend - Contact</title>
+
+	<style>
+		form {
+			max-width: 400px;
+			margin: auto;
+			padding: 1em;
+			border-radius: 10px;
+			background: #f4f4f4;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		label {
+			margin-top: 1em;
+			display: block;
+		}
+
+		input,
+		textarea {
+			width: 100%;
+			padding: 0.5em;
+			margin-top: 0.3em;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		button {
+			margin-top: 1em;
+			padding: 0.7em 1.5em;
+			background: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<form id="contactForm">
+		<label for="name">👤 Nombre:</label>
+		<input type="text" id="name" name="name" required />
+		<label for="email">📧 Email:</label>
+		<input type="email" id="email" name="email" required />
+		<label for="message">✉️ Mensaje:</label>
+		<textarea id="message" name="message" required></textarea>
+		<button type="submit">🚀 Enviar</button>
+		<p id="responseMsg" style="margin-top:10px;"></p>
+	</form>
+
+	<script>
+		const contactForm = document.getElementById('contactForm');
+
+		if (contactForm) {
+			contactForm.addEventListener('submit', async function (e) {
+				e.preventDefault();
+				const formData = new FormData(this);
+				const data = Object.fromEntries(formData.entries());
+				const response = await fetch('/send-email', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				});
+				const resultText = document.getElementById('responseMsg');
+				if (response.ok) {
+					resultText.textContent = '✅ ¡Mensaje enviado con éxito!';
+					resultText.style.color = 'green';
+					this.reset();
+				} else {
+					resultText.textContent = '❌ Error al enviar el mensaje.';
+					resultText.style.color = 'red';
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>
