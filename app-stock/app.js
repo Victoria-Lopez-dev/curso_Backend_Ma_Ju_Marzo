@@ -5,6 +5,11 @@ const exphbs = require('express-handlebars');
 const pool = require('./src/config/db');
 const mailRoutes = require('./src/routes/mail.routes');
 const productRoutes = require('./src/routes/product.routes');
+const {
+  authenticateToken,
+  authorizeRole,
+} = require('./src/middlewares/auth.middleware');
+const authRoutes = require('./src/routes/auth.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -44,6 +49,21 @@ app.get('/ping', async (req, res) => {
     });
   }
 });
+
+app.use('/auth', authRoutes);
+
+app.get('/profile', authenticateToken, (req, res) => {
+  res.json({ message: `Hola, ${req.user.username}!`, roles: req.user.roles });
+});
+
+app.get(
+  '/admin/dashboard',
+  authenticateToken,
+  authorizeRole('admin'),
+  (req, res) => {
+    res.json({ message: 'Bienvenido al panel de administración' });
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
