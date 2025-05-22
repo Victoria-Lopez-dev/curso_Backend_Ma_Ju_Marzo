@@ -7,7 +7,8 @@ const mailRoutes = require('./src/routes/mail.routes');
 const productRoutes = require('./src/routes/product.routes');
 const {
   authenticateToken,
-  authorizeRole,
+  authorizePermission,
+  // authorizeRole,
 } = require('./src/middlewares/auth.middleware');
 const authRoutes = require('./src/routes/auth.routes');
 
@@ -57,9 +58,25 @@ app.get('/profile', authenticateToken, (req, res) => {
 });
 
 app.get(
+  '/metrics',
+  authenticateToken,
+  authorizePermission('metrics:view'),
+  (req, res) => {
+    res.json({
+      message: 'Métricas de rendimiento',
+      data: {
+        cpuUsage: process.cpuUsage(),
+        memoryUsage: process.memoryUsage(),
+        uptime: process.uptime(),
+      },
+    });
+  }
+);
+
+app.get(
   '/admin/dashboard',
   authenticateToken,
-  authorizeRole('admin'),
+  authorizePermission('dashboard:view'),
   (req, res) => {
     res.json({ message: 'Bienvenido al panel de administración' });
   }
