@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const pool = require('../config/db'); // tu pool MySQL
+const pool = require('../config/db.mysql'); // tu pool MySQL
 
 // ✅ Middleware: Verifica que el token JWT sea válido
 const authenticateToken = (req, res, next) => {

@@ -2,7 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const pool = require('./src/config/db');
+const pool = require('./src/config/db.mysql');
+const connectDB = require('./src/config/db.mongo');
+const mongoose = require('mongoose');
 const mailRoutes = require('./src/routes/mail.routes');
 const productRoutes = require('./src/routes/product.routes');
 const {
@@ -14,6 +16,8 @@ const authRoutes = require('./src/routes/auth.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+connectDB;
 
 app.engine(
   'handlebars',
@@ -34,7 +38,7 @@ app.use(express.json());
 app.use('/', mailRoutes);
 app.use('/product', productRoutes);
 
-app.get('/ping', async (req, res) => {
+app.get('/ping-mysql', async (req, res) => {
   try {
     const result = await pool.query('SELECT now()');
     res.status(200).json({
@@ -47,6 +51,20 @@ app.get('/ping', async (req, res) => {
       status: 'error',
       message: 'Error al ejecutar la consulta',
       error: error.message,
+    });
+  }
+});
+
+app.get('/ping-mongo', async (req, res) => {
+  try {
+    const admin = mongoose.connection.db.admin();
+    const result = await admin.ping();
+    res.status(200).json({ message: '🟢 MongoDB responde', result });
+  } catch (err) {
+    console.error('❌ Error en ping:', err.message);
+    res.status(500).json({
+      message: '🔴 Error al conectar con MongoDB',
+      error: err.message,
     });
   }
 });
@@ -81,6 +99,8 @@ app.get(
     res.json({ message: 'Bienvenido al panel de administración' });
   }
 );
+
+app.use('/mongo/product', require('./src/routes/product.mongo.routes'));
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
