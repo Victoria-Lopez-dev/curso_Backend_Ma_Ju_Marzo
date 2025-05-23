@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs'); // Asegurate de que esté importado
-const pool = require('../config/db');
+const pool = require('../config/db.mysql');
 
 exports.register = async (req, res) => {
   const { username, email, password } = req.body;
