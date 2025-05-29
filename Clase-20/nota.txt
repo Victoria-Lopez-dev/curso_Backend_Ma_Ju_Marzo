@@ -1,0 +1,8 @@
+por razones de mal funcionamiento del sistema, no se subio el codigo de la app
+que estabamos creando para firebase, este va a quedar subido junto a un video
+subido como material complentario en el curso.
+
+el profe se compromete a subir el repositorio de github cuando
+lo tenga listo:
+
+-
