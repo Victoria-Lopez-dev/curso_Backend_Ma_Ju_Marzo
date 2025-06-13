@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs'); // Asegurate de que esté importado
 const pool = require('../config/db.mysql');
+const { validationResult } = require('express-validator');
 
 exports.register = async (req, res) => {
   const { username, email, password } = req.body;
@@ -46,6 +47,12 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  // Esto lo tendria que pasar a un Middleware como dice el archivo express-validator.md
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errores: errors.array() });
+  }
+
   const { email, password } = req.body;
   console.log('Login request:', req.body); // Log para depuración
 
