@@ -90,17 +90,46 @@ exports.login = async (req, res) => {
     // 4️⃣ Extraer los roles desde el resultado del JOIN
     const roles = rows.map((row) => row.role).filter(Boolean); // Remueve posibles `null`
 
+    const userData = {
+      id,
+      username,
+      roles, // <- roles del usuario
+    };
+
     // 5️⃣ Generar el token JWT
     const token = jwt.sign(
-      { id, username, roles }, // <- payload que codificás dentro del token
+      userData, // <- payload que codificás dentro del token
       process.env.JWT_SECRET, // <- clave secreta para firmar
       { expiresIn: process.env.JWT_EXPIRES_IN || '1d' } // <- duración del token
     );
 
-    // 6️⃣ Devolver el token al frontend
+    // 🔄 Reemplazamos la parte final de tu login
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false, // ✅ Asegurate de tener HTTPS en producción
+      sameSite: 'none', // ✅ Porque frontend y backend están en dominios distintos
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
+    });
+
+    res.status(200).json({ message: 'Login exitoso', userData });
+
+    /** // Antes de usar Cookies
+    // 6️⃣ Devolver el token al frontend 
     res.status(200).json({ message: 'Login exitoso', token });
+		 */
   } catch (err) {
     console.error('Error en login:', err);
     res.status(500).json({ message: 'Error del servidor.' });
   }
+};
+
+exports.logout = (req, res) => {
+  // Borrar la cookie del token
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: false, // ✅ Asegurate de tener HTTPS en producción
+    sameSite: 'none', // ✅ Porque frontend y backend están en dominios distintos
+  });
+
+  res.status(200).json({ message: 'Logout exitoso' });
 };
