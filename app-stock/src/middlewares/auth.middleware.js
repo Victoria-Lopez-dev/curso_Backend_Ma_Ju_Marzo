@@ -5,8 +5,14 @@ const pool = require('../config/db.mysql'); // tu pool MySQL
 const authenticateToken = (req, res, next) => {
   // headers['authorization] = `Bearer ${token}`;
 
-  const authHeader = req.headers['authorization'];
-  const token = authHeader?.split(' ')[1]; // Espera formato "Bearer <token>"
+  const token = req.cookies.token;
+
+  console.log(token);
+  /**
+ // Antes de migrar a Cookies 
+ const authHeader = req.headers['authorization'];
+ const token = authHeader?.split(' ')[1]; // Espera formato "Bearer <token>"
+ */
 
   if (!token) {
     return res.status(401).json({ message: 'Token no proporcionado.' });

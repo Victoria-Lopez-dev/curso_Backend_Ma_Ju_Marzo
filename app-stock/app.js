@@ -7,6 +7,8 @@ const connectDB = require('./src/config/db.mongo');
 const mongoose = require('mongoose');
 const mailRoutes = require('./src/routes/mail.routes');
 const productRoutes = require('./src/routes/product.routes');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const {
   authenticateToken,
   authorizePermission,
@@ -17,7 +19,16 @@ const authRoutes = require('./src/routes/auth.routes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(
+  cors({
+    origin: '*', // 🔁 O el dominio real de tu frontend
+    credentials: true, // ✅ Permite enviar cookies
+  })
+);
+
 connectDB;
+
+app.use(cookieParser());
 
 app.engine(
   'handlebars',
