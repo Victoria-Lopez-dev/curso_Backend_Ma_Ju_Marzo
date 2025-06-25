@@ -1,0 +1,4 @@
+Este link contiene un repositorio de ejemplo completo con un backend robusto
+y un frontend simple
+
+https://github.com/gonzalezvictorjuan/fullstack-connection-basics/
